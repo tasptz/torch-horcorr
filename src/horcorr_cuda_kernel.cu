@@ -54,9 +54,9 @@ __global__ void kernelForward(
 void runKernelForward(
     uint32_t numBlocks, uint32_t blockSize,
     const float *left, const float *right, float *output,
-    uint32_t leftWidth) {
-
-    kernelForward<<<numBlocks, blockSize>>>(left, right, output, leftWidth);
+    uint32_t leftWidth,
+    cudaStream_t stream) {
+    kernelForward<<<numBlocks, blockSize, 0, stream>>>(left, right, output, leftWidth);
 }
 
 __global__ void kernelRightBackward(
@@ -92,8 +92,9 @@ __global__ void kernelRightBackward(
 void runKernelRightBackward(
     uint32_t numBlocks, uint32_t blockSize,
     const float *left, const float *grad, float *output,
-    uint32_t leftWidth) {
-    kernelRightBackward<<<numBlocks, blockSize>>>(left, grad, output, leftWidth);
+    uint32_t leftWidth,
+    cudaStream_t stream) {
+    kernelRightBackward<<<numBlocks, blockSize, 0, stream>>>(left, grad, output, leftWidth);
 }
 
 __global__ void kernelLeftBackward(
@@ -130,6 +131,7 @@ __global__ void kernelLeftBackward(
 void runKernelLeftBackward(
     uint32_t numBlocks, uint32_t blockSize,
     const float *right, const float *grad, float *output,
-    uint32_t rightWidth) {
-    kernelLeftBackward<<<numBlocks, blockSize>>>(right, grad, output, rightWidth);
+    uint32_t rightWidth,
+    cudaStream_t stream) {
+    kernelLeftBackward<<<numBlocks, blockSize, 0, stream>>>(right, grad, output, rightWidth);
 }
