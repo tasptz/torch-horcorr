@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{physics}
+
 \begin{document}
 \begin{eqnarray*}
     \mathbf{L} & \in & \mathbb{R}^{(w + m - 1) \times d} \\
@@ -9,12 +11,12 @@
     \mathbf{C} & \in & \mathbb{R}^{w \times m} \\
     \mathbf{C} & = & \text{horcorr}(\mathbf{L}, \mathbf{R}) \\
     \mathbf{C}_{j, k} & = & \sum_{i = 1}^{d} \mathbf{L}_{j + k - 1, i} \mathbf{R}_{j,i} \\
-    \frac{\partial \mathbf{C}_{j, k}}{\partial \mathbf{R}_{j,i}} & = & \mathbf{L}_{j + k - 1, i} \\
-    \sum_{c \in \mathbf{C}} \frac{\partial c}{\partial \mathbf{R}_{j,i}} & = & \sum_{k = 1}^{m} \mathbf{L}_{j + k - 1, i} \\
-    \frac{\partial \mathbf{C}_{j, k}}{\partial \mathbf{L}_{j + k, i}} & = & \mathbf{R}_{j,i} \\
-    l & = & j + k \\
-    \sum_{c \in \mathbf{C}} \frac{\partial c}{\partial \mathbf{L}_{l, i}} & = & \sum_{k = 1}^{m}
-        \mathbf{R}_{l - k,i} f(l, k), \; f(l, k) = \begin{cases} 1 & \text{for} \; 1 \leq l - k \leq w\\
+    \dv{\mathbf{C}_{j, k}}{\mathbf{R}_{j,i}} & = & \mathbf{L}_{j + k - 1, i} \\
+    \sum_{c \in \mathbf{C}} \dv{c}{\mathbf{R}_{j,i}} & = & \sum_{k = 1}^{m} \mathbf{L}_{j + k - 1, i} \\
+    \dv{\mathbf{C}_{j, k}}{\mathbf{L}_{j + k - 1, i}} & = & \mathbf{R}_{j,i} \\
+    l & = & j + k - 1 \\
+    \sum_{c \in \mathbf{C}} \dv{c}{\mathbf{L}_{l, i}} & = & \sum_{k = 1}^{m}
+        \mathbf{R}_{l - k + 1,i} f(l, k), \; f(l, k) = \begin{cases} 1 & \text{for} \; 1 \leq l - k + 1 \leq w\\
         0 & \text{else}
     \end{cases}
 \end{eqnarray*}
