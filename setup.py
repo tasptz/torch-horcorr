@@ -2,6 +2,7 @@ from setuptools import setup
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 
 ARGS = [('DIM', '128'), ('NWINDOWS', '64'), ('BLOCKSIZE', '64')]
+DEBUG_FLAGS = [] # ['-lineinfo', '-G', '-g']
 
 setup(name='torch-horcorr',
     version='1.0.0',
@@ -19,7 +20,7 @@ setup(name='torch-horcorr',
             define_macros=ARGS,
             extra_compile_args={
                 'cxx': [],
-                'nvcc': ['-D' + '='.join(a) for a in ARGS]
+                'nvcc': ['-D' + '='.join(a) for a in ARGS] + DEBUG_FLAGS
             }
         )
     ],
