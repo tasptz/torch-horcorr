@@ -21,9 +21,6 @@ def blockify(img, blockdim=7):
 
 def main():
     img = cv2.imread('Cambridge_Kings_Hedges_Golden_Hind_RL.jpg')
-    # m = np.mean(img, axis=(0, 1))
-    # std = np.std(img, axis=(0, 1))
-    # nimg = (img - m) * np.reciprocal(std[None, None])
     nimg = img.astype(np.float32)
 
     width = nimg.shape[1] // 2
