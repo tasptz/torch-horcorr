@@ -23,7 +23,6 @@ torch::Tensor forward(at::Tensor left, at::Tensor right) {
 
     right = right.permute({0, 2, 3, 1}).contiguous();
     const auto rightWidth = right.size(2);
-    auto n = leftWidth - rightWidth + 1;
 
     auto output = at::empty({batch, height, rightWidth, NWINDOWS}, left.options());
 
