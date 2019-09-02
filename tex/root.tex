@@ -8,7 +8,7 @@
     \mathbf{R} & \in & \mathbb{R}^{w \times d} \\
     \mathbf{C} & \in & \mathbb{R}^{w \times m} \\
     \mathbf{C} & = & \text{horcorr}(\mathbf{L}, \mathbf{R}) \\
-    \mathbf{C}_{j, k} & = & \sum_{i = 0}^{d} \mathbf{L}_{j + k, i} \mathbf{R}_{j,i} \\
+    \mathbf{C}_{j, k} & = & \sum_{i = 1}^{d} \mathbf{L}_{j + k, i} \mathbf{R}_{j,i} \\
     \frac{\partial \mathbf{C}_{j, k}}{\partial \mathbf{R}_{j,i}} & = & \mathbf{L}_{j + k, i} \\
     \sum_{c \in \mathbf{C}} \frac{\partial c}{\partial \mathbf{R}_{j,i}} & = & \sum_{k = 1}^{m} \mathbf{L}_{j + k, i} \\
     \frac{\partial \mathbf{C}_{j, k}}{\partial \mathbf{L}_{j + k, i}} & = & \mathbf{R}_{j,i} \\
