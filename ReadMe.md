@@ -8,7 +8,7 @@ In the following we only consider one row, as generalization to batches and mult
 ## Why?
 At the moment of writing this there is no possibility to implement this
 in pure pytorch (version 1.2) without using up a huge amount of memory.
-So there are other implementations which do something similiar (I think), e.g.
+Although there are other implementations which do something similiar (I think), e.g.
 [Pytorch-Correlation-extension](https://github.com/ClementPinard/Pytorch-Correlation-extension). Another reason was to learn about implementing
 custom pytorch ops with gradient support.
 ## Features
